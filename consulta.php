@@ -16,6 +16,7 @@ $operacoes =  array();
 	
 //var_dump($tiposOperacoes);
 ?>
+<br>
 <table border = 1>
 
 <?php
