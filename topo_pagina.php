@@ -1,12 +1,7 @@
 <?php
 session_start();
-
-//var_dump($_SESSION);
-// Verifica se o usuário está logado
 if(!isset($_SESSION["nome"]))
-{	
-	header("Location:index.php");		
-}
+{header("Location:index.php");}
 ?>
 <html>
 <head>

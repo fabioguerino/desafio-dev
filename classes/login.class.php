@@ -3,14 +3,14 @@ class Login
 {
 	
 	// Variáveis
-	private $usuario, $senha, $modulo;
+	private $usuario, $senha;
 
 	// Construtor
-	public function __construct($usuario, $senha, $modulo)
+	public function __construct($usuario, $senha )
 	{		
 		$this->usuario = $usuario;			
-		$this->senha = md5($senha);			
-		$this->modulo = $modulo;
+		$this->senha = md5($senha);		
+		
 	}	
 	
 	// Realiza o login do usuário, cria as sessões e retorna mensagem de erro ou sucesso
@@ -59,28 +59,6 @@ class Login
 			}
 		}		
 	}// fim function logar	
-	public function verificar_permissao()
-	{
-		// Incluindo arquivo de conexão/configuração
-		require_once("../".$this->arquivo_conexao);
-		
-		$query = "SELECT * FROM ".$this->tabela." WHERE ".$this->campo_usuario." = '".$this->usuario."' and modulos like '%".$this->modulo."%'";
-		
-		$result = $mysqli->query($query);
-		
-		// Caso não tenha a permissão, dá mensagem de erro e reencaminha para página inicial
-		if($result->num_rows==0)
-		{
-			?>
-			
-			<script>
-				alert("Usuário não possui permissão para acessar o módulo!");
-				//alert(document.getElementById("erro_permissao_modulo").value);
-				window.location = "../index.php";
-			</script>;
-		<?php	
-		
-		}		
-	}
+	
 }//fim class
 ?>

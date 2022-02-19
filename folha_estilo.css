@@ -277,19 +277,21 @@ th.vermelho
 	background-color:#FFF5EE;
 	color:#333;
 	font-family:Roboto;
-	font-size:14px;
+	font-size:16px;
 	height:30px;
 	border:1px solid #777;
+	padding: 10px;
 }
 td.vermelho
 {
 	background-color:#FFF5EE;
 	color:#333;
 	font-family:Roboto;
-	font-size:14px;
+	font-size:16px;
 	height:30px;
 	border:1px solid #777;
 	text-align:center;
+	padding: 10px;
 }
 .tabela_resultados
 {

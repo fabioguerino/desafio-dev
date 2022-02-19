@@ -1,9 +1,9 @@
 <?php
 class BD
 {
-	var $host 		= "localhost";
+	var $host 		= "db";
 	var $usuario	= "root";
-	var	$senha 		= "";
+	var	$senha 		= "102030";
 	var $banco 		= "desafiobycoders";
 	
 	var $query;

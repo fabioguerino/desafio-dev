@@ -2,21 +2,30 @@
 include("classes/BD.class.php");
 include("classes/operacoes.class.php");
 /*
-$mySQL 			= new BD();
-$res 			= $mySQL->executeQuery("SELECT * FROM teste;");
-$rs_totalRows 	= $res->num_rows;
-
-echo $rs_totalRows;
-
-$file = new Operacoes();
-$file->gravarArquivo("CNAB.txt");
-*/
-if(isset($_POST["arquivo"]) && $_POST["arquivo"] != "")
+if(isset($_POST["login"]) && $_POST["login"] != "")
 {
-	$arquivo = $_POST["arquivo"];
-	$file = new Operacoes();
-	$file->gravarArquivo($arquivo);
+	require_once("classes/login.class.php");
+	require_once("classes/BD.class.php");
+
+	$login = $_POST["login"];
+	$senha = $_POST["senha"];
+	
+	$usuario = new Login($login,$senha, "");
+
+	// Realiza o login do usuário, cria as sessões e retorna mensagem de erro ou sucesso 
+	$usuario->logar();
+	
+	if($retorno["erro"] === true)
+	{
+		echo "Erro";
+
+	}
+	else
+	{
+		header("menu.php");	
+	}
 }
+*/
 ?>
 <html>
 <head>
@@ -27,7 +36,7 @@ if(isset($_POST["arquivo"]) && $_POST["arquivo"] != "")
 		// Quando carregado a página
 		$(function()
 		{ 
-			$(document).on("click","#button_login",function()
+			$("#button_login").click(function()
 			{				
 				var login = $("#login").val();
 				var senha = $("#senha").val();
@@ -63,7 +72,7 @@ if(isset($_POST["arquivo"]) && $_POST["arquivo"] != "")
 	
 	<div class="conteiner_logo_forms">	
 		<div class="formularios_login" id="formularios_login">
-		<form id="form_login" action="logar.php" method="post">					
+		<form id="form_login" action="index.php" method="post">					
 			
 			<input type="text" id="login" name="login" class="text_login" placeholder="Usuário">
 			<br><br>

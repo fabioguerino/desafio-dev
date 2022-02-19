@@ -1,16 +1,13 @@
 <?php
+include "menu.php";
+?>
+<html>
+<head></head>
+<body>
+<?php
 include("classes/BD.class.php");
 include("classes/operacoes.class.php");
-/*
-$mySQL 			= new BD();
-$res 			= $mySQL->executeQuery("SELECT * FROM teste;");
-$rs_totalRows 	= $res->num_rows;
 
-echo $rs_totalRows;
-
-$file = new Operacoes();
-$file->gravarArquivo("CNAB.txt");
-*/
 if(isset($_POST["arquivo"]) && $_POST["arquivo"] != "")
 {
 	$arquivo = $_POST["arquivo"];
@@ -18,14 +15,8 @@ if(isset($_POST["arquivo"]) && $_POST["arquivo"] != "")
 	$file->gravarArquivo($arquivo);
 }
 ?>
-<html>
-<head></head>
-<body>
-<?php
-include "menu.php";
 
-?>
-<form action="index.php" method="post">
+<form action="cadastro.php" method="post">
 	<br>
 	<br>
 	<h1 align="center">Cadastro de Movimentações Financeiras</h1>
@@ -39,7 +30,7 @@ include "menu.php";
 		<br>
 		<br>
 		<br>
-		<input type="submit" value="Enviar">
+		<input type="submit" value="Enviar" class="botao">
 	</div>
 </form>
 </body>
